@@ -39,6 +39,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
     }
 
+    } else if (event is ShowSearchPage){
+      yield WeatherLoading();
+      yield WeatherInitial();
     }
   }
 }

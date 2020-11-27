@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weatherApp/bloc/bloc/weather_bloc.dart';
+import 'package:weatherApp/ui/display.dart';
 import 'package:weatherApp/ui/form.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
               } else if( state is  WeatherInitial){
                  return  WeatherForm();
               } else if( state is  WeatherSuccess){
-                 return  Text('got me data :d');
+                 return  DisplayWeather();
               } else if( state is  WeatherFail){
                  return  Text('oups something went wrong');
               } 

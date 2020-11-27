@@ -12,7 +12,7 @@ class WeatherModel extends Equatable{
     return WeatherModel(
       temp: json['main']['temp'],
       humidity: json['main']['humidity'],
-      city: json['city'],
+      city: json['name'],
     );
   }
 
