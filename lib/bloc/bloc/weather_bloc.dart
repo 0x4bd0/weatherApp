@@ -32,8 +32,11 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
       print(res);
 
+      yield WeatherInitial();
+
     }catch(e){
-      
+     print(e);
+
      yield WeatherFail('something went wrong.');
 
     }

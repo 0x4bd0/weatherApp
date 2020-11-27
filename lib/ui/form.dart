@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weatherApp/bloc/bloc/weather_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WeatherForm extends StatefulWidget {
   @override
@@ -9,6 +11,7 @@ class WeatherForm extends StatefulWidget {
 
 
 class WeatherFormState extends State<WeatherForm> {
+  String city = '';
 
   final _formKey = GlobalKey<FormState>();
 
@@ -20,6 +23,12 @@ class WeatherFormState extends State<WeatherForm> {
         children: <Widget>[
             TextFormField(
                style: TextStyle(fontSize: 22.0, color: Color(0xFFbdc6cf)),
+               onChanged: (value){
+                 print(value);
+                 setState(() {
+                   city = value;
+                 });
+               },
               cursorColor: Colors.red,
                 decoration: InputDecoration(
                 fillColor : Colors.red,
@@ -46,7 +55,8 @@ class WeatherFormState extends State<WeatherForm> {
               ),
               ),
               FlatButton.icon(onPressed: (){
-                print(context);
+                final wb = BlocProvider.of<WeatherBloc>(context);
+                wb.add(GetWeather(city));
               }, icon: Icon(Icons.search), label: Text('Search',style: TextStyle(color: Colors.white),),
               color: Colors.blue,
               textColor: Colors.white,

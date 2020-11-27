@@ -14,7 +14,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
         appBar: AppBar(
           title: Text('Home Page'),
         ),
@@ -26,6 +25,10 @@ class _HomePageState extends State<HomePage> {
                 return  Text('Loading');
               } else if( state is  WeatherInitial){
                  return  WeatherForm();
+              } else if( state is  WeatherSuccess){
+                 return  Text('got me data :d');
+              } else if( state is  WeatherFail){
+                 return  Text('oups something went wrong');
               } 
             },
           ),
