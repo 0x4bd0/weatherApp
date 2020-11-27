@@ -1,7 +1,10 @@
-class WeatherModel {
+import 'package:equatable/equatable.dart';
+
+class WeatherModel extends Equatable{
   final temp;
 
   WeatherModel({this.temp});
 
-  double get getTemp => temp;
+  @override
+  List<Object> get props => [temp];
 }
