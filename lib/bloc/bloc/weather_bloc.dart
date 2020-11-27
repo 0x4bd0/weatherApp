@@ -28,11 +28,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
     try{
 
-      final res = await repository.getWeather(event.city);
+      final data = await repository.getWeather(event.city);
 
-      print(res);
-
-      yield WeatherInitial();
+      yield WeatherSuccess(data);
 
     }catch(e){
      print(e);
